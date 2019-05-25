@@ -111,7 +111,7 @@ $join_date = $user->join_date;
                                            foreach ($paste->result() as $row)
                                            {
 												if($this_username==$username|| $this_username=="admin" ){
-													?> <tr><td><a href="<?php echo base_url('ctrl/v/').$row->paste_id?>" target='_blank'> <?php echo $row->title;?> </a></td><td><?php echo $row->created_at ?></td><td><a href="paste-edit.php?id=">Edit</a> || <a href="paste-delete.php?paste_id=&user_id=" onClick="return confirm('Yakin ingin menghapus?')">Delete</a></td></tr> <?php
+													?> <tr><td><a href="<?php echo base_url('ctrl/v/').$row->paste_id?>" target='_blank'> <?php echo $row->title;?> </a></td><td><?php echo $row->created_at ?></td><td><a href="<?php echo base_url('ctrl/e/').$row->paste_id?>">Edit</a> || <a href="<?php echo base_url('ctrl/d/').$row->paste_id?>" onClick="return confirm('Yakin ingin menghapus?')">Delete</a></td></tr> <?php
 												}
 												else{
 													?> <tr>

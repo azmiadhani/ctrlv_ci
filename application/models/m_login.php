@@ -34,4 +34,10 @@ class M_login extends CI_Model{
     return $this->db->trans_status();
   }
 
+  function delete_paste($table,$data){		
+    $this->db->trans_start();
+    $this->db->delete($table, $data);
+    $this->db->trans_complete();
+    return $this->db->trans_status();
+  }
 }
