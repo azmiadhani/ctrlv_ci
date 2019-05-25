@@ -5,7 +5,7 @@
 // echo $user->paste;
 // echo $user->created_at;
 // echo $user->qrcode_id;
-// echo $user->user_id;
+echo $status;
 
 $paste_id = $user->paste_id;
 // echo "<br>";
@@ -15,7 +15,6 @@ $created_at = $user->created_at;
 $qrcode_id = $user->qrcode_id;
 $user_id = $user->user_id;
 ?>
-
 
 <!DOCTYPE html>
     
@@ -102,7 +101,12 @@ error_reporting(false);
 
 									<div class="form-wrapper">
 										
-										<form method="post" action="paste-process.php" id="usrform">
+										<form method="post" action="<?php echo base_url('home/paste_edit')?>" id="usrform">
+											<input type="hidden" name="paste_id" value="<?php echo $paste_id ?>" />
+											<input type="hidden" name="title" value="<?php echo $title ?>" />
+											<input type="hidden" name="created_at" value="<?php echo $created_at ?>" />
+											<input type="hidden" name="qrcode_id" value="<?php echo $qrcode_id ?>" />
+											<input type="hidden" name="user_id" value="<?php echo $user_id ?>" />
                                             <!-- form-item -->
 											<div class="form-item ">
 												<h2 class="contact__title">ControlV Paste</h2>
@@ -129,8 +133,12 @@ error_reporting(false);
 
                                             <!-- form-item -->
 											<div class="form-item ">	
+											<?php if($status==1){?>
+												<input class="md-btn md-btn--primary md-btn--lg" type="submit" value="Edit Paste" name="simpan"/> 
+											<?php }else{?>
+											<?php ?>
                                                 <a href="http://localhost/ctrlv/index.php"><h2 class="contact__title" style="color: #ff594f;">Click here to go back Home</h2></a>
-                                                
+                                            <?php } ?>
                                             </div><!-- End / form-item -->
                                         </form>
                                     </div>

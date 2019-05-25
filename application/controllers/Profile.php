@@ -13,10 +13,23 @@ class Profile extends CI_Controller {
 
 	public function index()
 	{
-        $where = array(
-            'user_id' => $this->session->userdata('nama'),
+        $this_user = $this->session->userdata('nama');
+        redirect(base_url("profile/v/$this_user"));
+    }
+
+    public function v($id){
+        $id_this_user = $this->session->userdata('nama');
+
+        $where_this_user = array(
+            'user_id' => $id_this_user
         );
         
+        $where = array(
+            'user_id' => $id
+        );
+
+
+        $cek_this_user = $this->m_login->cek_paste("user", $where_this_user);
         $cek = $this->m_login->cek_paste("user", $where);
         $cek_paste = $this->m_login->cek_paste("paste", $where);
 
@@ -24,6 +37,7 @@ class Profile extends CI_Controller {
             
             $data['user'] = $cek->row();
             $data['paste'] = $cek_paste;
+            $data['this_user'] = $cek_this_user->row();
             // $data['user'] =  $this->m_login->cek_paste("paste", $where)->row();
         
             $this->load->view('profile/profile_v', $data);

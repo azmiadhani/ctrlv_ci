@@ -27,4 +27,11 @@ class M_login extends CI_Model{
     return $this->db->trans_status();
   }
 
+  function update_paste($table,$data){		
+    $this->db->trans_start();
+    $this->db->replace($table, $data);
+    $this->db->trans_complete();
+    return $this->db->trans_status();
+  }
+
 }

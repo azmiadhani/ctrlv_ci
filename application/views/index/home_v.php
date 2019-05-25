@@ -47,7 +47,7 @@
 							</li>
 							<li><a href="pastes.php">Recent Pastes</a>
 							</li>
-							<li><a href="profile.php?id=<?php echo $user;?>">Profile</a>
+							<li><a href="<?php echo base_url('profile')?>">Profile</a>
                             </li>
                             <li><a href="login/logout">Logout</a>
 							</li>
@@ -143,25 +143,14 @@
 			
 			<!-- footer -->
 			<div class="footer">
-				<?php include 'assets/includephp/footer.php';?>
+				<?php 
+				include 'assets/includephp/footer.php';
+				include 'assets/includephp/bottom.php';
+				?>
+				
 			</div>
 			<!-- End / footer -->
 			
 		</div>
-		<!-- Vendors-->
-		<script type="text/javascript" src="assets/vendors/jquery/jquery.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
-		<script type="text/javascript" src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
-		<script type="text/javascript" src="assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
-		<script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/swiper/swiper.jquery.js"></script>
-		<script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
-		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
-		<!-- App-->
-		<script type="text/javascript" src="assets/js/main.js"></script>
 	</body>
 </html>

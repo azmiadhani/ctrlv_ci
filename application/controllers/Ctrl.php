@@ -5,9 +5,9 @@ class Ctrl extends CI_Controller {
 	public function __construct()
     {
             parent::__construct();
-            if($this->session->userdata('status') != "login"){
-                redirect(base_url("login"));
-            }
+            // if($this->session->userdata('status') != "login"){
+            //     redirect(base_url("login"));
+            // }
             $this->load->model('m_login');
     }
 
@@ -17,19 +17,39 @@ class Ctrl extends CI_Controller {
     }
 
     public function v($id){
-        
         $where = array(
             'paste_id' => $id,
         );
-        $cek = $this->m_login->cek_paste("paste", $where)->num_rows();
-        if($cek>0){
-            $data['user'] =  $this->m_login->cek_paste("paste", $where)->row();
         
+        $cek = $this->m_login->cek_paste("paste", $where);
+
+        if($cek->num_rows()>0){
+            $data['user'] =  $cek->row();
+            $data['status'] = 0;
+
             $this->load->view('index/paste_v', $data);
         }
         else{
             redirect(base_url("home"));
         }
         
+    }
+
+    public function e($id){
+        $where = array(
+            'paste_id' => $id,
+        );
+        
+        $cek = $this->m_login->cek_paste("paste", $where);
+
+        if($cek->num_rows()>0){
+            $data['user'] =  $cek->row();
+            $data['status'] = 1;
+
+            $this->load->view('index/paste_v', $data);
+        }
+        else{
+            redirect(base_url("home"));
+        }
     }
 }
