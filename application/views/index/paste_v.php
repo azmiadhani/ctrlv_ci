@@ -43,7 +43,7 @@ error_reporting(false);
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="header__inner">
-					<div class="header__logo"><a href="index.php"><img src="<?php echo base_url('assets/img/logo.png')?>" alt="" style="width: 122px;"/></a></div>
+					<div class="header__logo"><a href="<?php echo base_url('home')?>"><img src="<?php echo base_url('assets/img/logo.png')?>" alt="" style="width: 122px;"/></a></div>
 					<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
 					</div>
@@ -55,9 +55,9 @@ error_reporting(false);
 					<nav class="overlay-menu">
 						<!--  -->
 						<ul class="wil-menu-list">
-							<li ><a href="index.php">Home</a>
+							<li ><a href="<?php echo base_url('home')?>">Home</a>
 							</li>
-							<li class="current-menu-item"><a href="pastes.php">Recent Pastes</a>
+							<li class="current-menu-item"><a href="<?php echo base_url('pastes.php')?>">Recent Pastes</a>
 							</li>
 							<?php //if(isset($user)){
 							//echo "<li><a href='profile.php?id=$user'>Profile</a> </li>";
@@ -122,7 +122,7 @@ error_reporting(false);
 											<div class="form-item ">	
                                                 <h2 class="contact__title">QRCode</h2>
                                                 <?php
-                                                $qrcode_id=$row['qrcode_id'];
+                                                // $qrcode_id=$row['qrcode_id'];
                                                 ?>
                                                 <img src="qrcode_generated/<?php echo $qrcode_id;?>.png"> 
                                             </div><br><!-- End / form-item -->
@@ -158,7 +158,7 @@ error_reporting(false);
 		</div>
 		
         <script>
-		CodeMirror.modeURL = "editor/mode/%N/%N.js";
+		CodeMirror.modeURL = "<?php echo base_url('assets/editor/mode/%N/%N.js')?>";
 		var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
 			theme: "dracula",
 			lineNumbers: true,
@@ -201,7 +201,7 @@ error_reporting(false);
 						
 					}
 					else{
-						// window.location.href='index.php'; // enable later
+						window.location.href='index.php'; // enable later
 					}
 				});
 			}

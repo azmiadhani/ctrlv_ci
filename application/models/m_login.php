@@ -5,8 +5,12 @@ class M_login extends CI_Model{
 		return $this->db->get_where($table,$where);
   }
 
-    function cek_paste($table,$where){		
-    return $this->db->get_where($table,$where)->row();
+  function cek_paste($table,$where){		
+    return $this->db->get_where($table,$where);
+  }
+
+  function get_paste($table){		
+    return $this->db->get($table);
   }
 
   function register($table,$data){		

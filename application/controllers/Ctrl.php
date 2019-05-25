@@ -17,12 +17,19 @@ class Ctrl extends CI_Controller {
     }
 
     public function v($id){
+        
         $where = array(
             'paste_id' => $id,
-            );
-
-        $data['user'] =  $this->m_login->cek_paste("paste", $where);
-            
-        $this->load->view('index/paste_v', $data);
+        );
+        $cek = $this->m_login->cek_paste("paste", $where)->num_rows();
+        if($cek>0){
+            $data['user'] =  $this->m_login->cek_paste("paste", $where)->row();
+        
+            $this->load->view('index/paste_v', $data);
+        }
+        else{
+            redirect(base_url("home"));
+        }
+        
     }
 }
