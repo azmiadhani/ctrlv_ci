@@ -52,9 +52,11 @@ $join_date = $user->join_date;
 							</li>
 							<li ><a href="<?php echo base_url('profile/v/public')?>">Recent Pastes</a>
 							</li>
-							<li class="current-menu-item"><a href="profile.php?id=<?php echo $username;?>">Profile</a>
-							</li>
-						</ul><!--  -->	
+							<li class="current-menu-item"><a href="<?php echo base_url('profile')?>">Profile</a>
+                            </li>
+                            <li><a href="login/logout">Logout</a>
+                            </li>
+						</ul><!--  -->
 					</nav>
 				</div>
 			</header>
@@ -70,8 +72,16 @@ $join_date = $user->join_date;
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">Profile of <?php echo htmlentities($username)?></h2>
-							<p class="page-title__text">Joined on <u><?php echo htmlentities($join_date)?></u></p>
+                            <?php if($username=="public"){ ?>
+                                <h2 class="page-title__title">Recent Paste </h2>
+                            <?php }else{?>
+                                <h2 class="page-title__title">Profile of <?php echo htmlentities($username)?></h2>
+                            <?php }?>
+                            <?php if($username=="public"){ ?>
+                                <p class="page-title__text">Find something!</u></p>
+                            <?php }else{?>
+                                <p class="page-title__text">Joined on <u><?php echo htmlentities($join_date)?></u></p>
+                            <?php }?>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
 						
@@ -109,7 +119,7 @@ $join_date = $user->join_date;
                                                                 <a href="<?php echo base_url('$row->paste_id')?>" target='_blank'> <?php echo $row->title;?> </a>
                                                             </td>
                                                             <td>
-                                                                <?php echo $row['created_at'] ?>
+                                                                <?php echo $row->created_at ?>
                                                                 </td>
                                                         </tr> <?php
 												}
@@ -117,7 +127,7 @@ $join_date = $user->join_date;
                                             ?>
                                         </table>
                                         <br><br>
-										<?php if($id==$_SESSION['user'] || $_SESSION['user']=="admin" ){?>
+										<?php if($this_username==$username|| $this_username=="admin"){?>
                             
                                             <!-- Tombol Edit Profile -->
                                             <form action="<?php echo base_url('home')?>"> 

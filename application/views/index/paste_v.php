@@ -56,18 +56,13 @@ error_reporting(false);
 						<ul class="wil-menu-list">
 							<li ><a href="<?php echo base_url('home')?>">Home</a>
 							</li>
-							<li class="current-menu-item"><a href="<?php echo base_url('pastes.php')?>">Recent Pastes</a>
+							<li ><a href="<?php echo base_url('profile/v/public')?>">Recent Pastes</a>
 							</li>
-							<?php //if(isset($user)){
-							//echo "<li><a href='profile.php?id=$user'>Profile</a> </li>";
-							//}
-							?>
-							
-							<!-- <li><a href="blog.php">Blog</a>
-							</li>
-							<li><a href="contact.php">Contact</a>
-							</li> -->
-						</ul><!--  -->	
+							<li class="current-menu-item"><a href="<?php echo base_url('profile')?>">Profile</a>
+                            </li>
+                            <li><a href="login/logout">Logout</a>
+                            </li>
+						</ul><!--  -->
 					</nav><!-- End / overlay-menu -->	
 				</div><!-- End / fullscreenmenu__module -->
 			</header><!-- End / header -->

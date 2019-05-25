@@ -13,7 +13,11 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-        $this->load->view('index/home_v');
+        $id=$this->session->userdata('nama');
+        $data = array(
+            'user' => $id,
+        );
+        $this->load->view('index/home_v', $data);
     }
 
     public function paste(){

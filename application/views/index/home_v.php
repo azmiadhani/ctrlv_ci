@@ -3,7 +3,7 @@
 <?php
 	// include 'config.php'; // Include koneksi
 	error_reporting(false);
-    session_start();
+    
 	// cek apakau user sudah login
 
     // // // ENABLEE LATERRR !!!!!!!!!!!!!!!!!!!!!!!!!!! (jika belum login balik ke halaman login
@@ -13,7 +13,7 @@
 	// }
 
 	//User Declaration 
-	$user=$_SESSION['user']
+	$username=$user;
 ?>
 
 <html>
@@ -43,19 +43,15 @@
 					<nav class="overlay-menu">
 						<!--  -->
 						<ul class="wil-menu-list">
-							<li class="current-menu-item"><a href="index.php">Home</a>
+							<li ><a href="<?php echo base_url('home')?>">Home</a>
 							</li>
-							<li><a href="pastes.php">Recent Pastes</a>
+							<li ><a href="<?php echo base_url('profile/v/public')?>">Recent Pastes</a>
 							</li>
-							<li><a href="<?php echo base_url('profile')?>">Profile</a>
+							<li class="current-menu-item"><a href="<?php echo base_url('profile')?>">Profile</a>
                             </li>
                             <li><a href="login/logout">Logout</a>
-							</li>
-							<!-- <li><a href="blog.php">Blog</a>
-							</li>
-							<li><a href="contact.php">Contact</a>
-							</li> -->
-						</ul><!--  -->	
+                            </li>
+						</ul><!--  -->
 					</nav><!-- End / overlay-menu -->	
 				</div><!-- End / fullscreenmenu__module -->
 			</header><!-- End / header -->
@@ -72,7 +68,7 @@
 						
 						<!-- page-title -->
 						<div class="page-title">
-							<h2 class="page-title__title">Hello <?php echo htmlentities($user)?>, i am CTRLV.<br>I
+							<h2 class="page-title__title">Hello <?php echo htmlentities($username)?>, i am CTRLV.<br>I
 								
 								<!-- typing__module -->
 								<div class="typing__module">

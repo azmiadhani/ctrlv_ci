@@ -18,33 +18,63 @@ class Profile extends CI_Controller {
     }
 
     public function v($id){
-        $id_this_user = $this->session->userdata('nama');
+        if($id=="public"){
+            $id_this_user = $this->session->userdata('nama');
 
-        $where_this_user = array(
-            'user_id' => $id_this_user
-        );
-        
-        $where = array(
-            'user_id' => $id
-        );
-
-
-        $cek_this_user = $this->m_login->cek_paste("user", $where_this_user);
-        $cek = $this->m_login->cek_paste("user", $where);
-        $cek_paste = $this->m_login->cek_paste("paste", $where);
-
-        if($cek->num_rows()>0){
+            $where = array(
+                'user_id' => $id
+            );
             
-            $data['user'] = $cek->row();
-            $data['paste'] = $cek_paste;
-            $data['this_user'] = $cek_this_user->row();
-            // $data['user'] =  $this->m_login->cek_paste("paste", $where)->row();
-        
-            $this->load->view('profile/profile_v', $data);
+            $where_this_user = array(
+                'user_id' => $id_this_user
+            );
+            
+            $cek_this_user = $this->m_login->cek_paste("user", $where_this_user);
+            $cek = $this->m_login->cek_paste("user", $where);
+            $cek_paste = $this->m_login->get_paste("paste");
+
+            if($cek_paste->num_rows()>0){
+                $data['user'] = $cek->row();
+                $data['paste'] = $cek_paste;
+                $data['this_user'] = $cek_this_user->row();
+                // $data['user'] =  $this->m_login->cek_paste("paste", $where)->row();
+            
+                $this->load->view('profile/profile_v', $data);
+            }
+            else{
+                redirect(base_url("home"));
+            }
         }
         else{
-            redirect(base_url("home"));
+            $id_this_user = $this->session->userdata('nama');
+
+            $where_this_user = array(
+                'user_id' => $id_this_user
+            );
+            
+            $where = array(
+                'user_id' => $id
+            );
+    
+    
+            $cek_this_user = $this->m_login->cek_paste("user", $where_this_user);
+            $cek = $this->m_login->cek_paste("user", $where);
+            $cek_paste = $this->m_login->cek_paste("paste", $where);
+    
+            if($cek->num_rows()>0){
+                
+                $data['user'] = $cek->row();
+                $data['paste'] = $cek_paste;
+                $data['this_user'] = $cek_this_user->row();
+                // $data['user'] =  $this->m_login->cek_paste("paste", $where)->row();
+            
+                $this->load->view('profile/profile_v', $data);
+            }
+            else{
+                redirect(base_url("home"));
+            }
         }
+        
         
     }
 }

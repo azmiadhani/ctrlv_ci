@@ -27,9 +27,9 @@
 			<header class="header header--fixed">
 				<div class="header__inner">
 					<div class="header__logo"><a href="home"><img src="assets/img/logo.png" alt="" style="width: 122px;"/></a></div>
-					<div class="navbar-toggle" id="fs-button">
+					<!-- <div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
-					</div>
+					</div> -->
 				</div>
 				
 				<!-- fullscreenmenu__module -->
