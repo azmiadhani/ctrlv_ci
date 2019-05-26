@@ -17,6 +17,7 @@ class Home extends CI_Controller {
         $data = array(
             'user' => $id,
         );
+        $data['user_login']=$this->session->userdata('nama');
         $this->load->view('index/home_v', $data);
     }
 
@@ -59,11 +60,12 @@ class Home extends CI_Controller {
             'qrcode_id' => $image_name,
             'user_id' => $user_id
             );
+        $data['user_login']=$this->session->userdata('nama');
         $cek = $this->m_login->paste("paste",$data);
 
         if($cek == true){
             echo $cek;
-            redirect(base_url("ctrl/v/$paste_id"));
+            redirect(base_url("CV").$paste_id);
         }else{
             echo "Database Error tidak bisa insert";
             redirect(base_url("home"));

@@ -5,7 +5,8 @@
 // echo $user->paste;
 // echo $user->created_at;
 // echo $user->qrcode_id;
-echo $status;
+echo $status_login;
+
 
 $paste_id = $user->paste_id;
 // echo "<br>";
@@ -14,6 +15,7 @@ $paste = $user->paste;
 $created_at = $user->created_at;
 $qrcode_id = $user->qrcode_id;
 $user_id = $user->user_id;
+
 ?>
 
 <!DOCTYPE html>
@@ -43,9 +45,12 @@ error_reporting(false);
 			<header class="header header--fixed">
 				<div class="header__inner">
 					<div class="header__logo"><a href="<?php echo base_url('home')?>"><img src="<?php echo base_url('assets/img/logo.png')?>" alt="" style="width: 122px;"/></a></div>
-					<div class="navbar-toggle" id="fs-button">
+					<?php if($status_login=="login"){?>
+						<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
-					</div>
+						</div>
+					<?php } ?>
+					
 				</div>
 				
 				<!-- fullscreenmenu__module -->
@@ -56,11 +61,11 @@ error_reporting(false);
 						<ul class="wil-menu-list">
 							<li ><a href="<?php echo base_url('home')?>">Home</a>
 							</li>
-							<li ><a href="<?php echo base_url('profile/v/public')?>">Recent Pastes</a>
+							<li ><a href="<?php echo base_url('-public')?>">Recent Pastes</a>
 							</li>
-							<li class="current-menu-item"><a href="<?php echo base_url('profile')?>">Profile</a>
+							<li class="current-menu-item"><a href="<?php echo base_url('-').$user_login?>">Profile</a>
                             </li>
-                            <li><a href="login/logout">Logout</a>
+                            <li><a href="logout">Logout</a>
                             </li>
 						</ul><!--  -->
 					</nav><!-- End / overlay-menu -->	
@@ -78,7 +83,7 @@ error_reporting(false);
 						<!-- page-title -->
 						<div class="page-title pb-40">
 							<h2 class="page-title__title"><?php echo htmlentities($title)?></h2>
-							<p class="page-title__text">Paste by <u><a href=""><?php echo htmlentities($user)?></a></u> created at <u><?php echo htmlentities($created_at)?></u></p>
+							<p class="page-title__text">Paste by <u><a href="<?php echo base_url('-').$user_id?>"><?php echo htmlentities($user_id)?></a></u> created at <u><?php echo htmlentities($created_at)?></u></p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
 						
@@ -132,7 +137,7 @@ error_reporting(false);
 												<input class="md-btn md-btn--primary md-btn--lg" type="submit" value="Edit Paste" name="simpan"/> 
 											<?php }else{?>
 											<?php ?>
-                                                <a href="http://localhost/ctrlv/index.php"><h2 class="contact__title" style="color: #ff594f;">Click here to go back Home</h2></a>
+                                                <a href="<?php echo base_url('home')?>"><h2 class="contact__title" style="color: #ff594f;">Click here to go back Home</h2></a>
                                             <?php } ?>
                                             </div><!-- End / form-item -->
                                         </form>

@@ -38,7 +38,7 @@ class Profile extends CI_Controller {
                 $data['paste'] = $cek_paste;
                 $data['this_user'] = $cek_this_user->row();
                 // $data['user'] =  $this->m_login->cek_paste("paste", $where)->row();
-            
+                $data['user_login']=$this->session->userdata('nama');
                 $this->load->view('profile/profile_v', $data);
             }
             else{

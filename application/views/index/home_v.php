@@ -45,13 +45,13 @@
 						<ul class="wil-menu-list">
 							<li ><a href="<?php echo base_url('home')?>">Home</a>
 							</li>
-							<li ><a href="<?php echo base_url('profile/v/public')?>">Recent Pastes</a>
+							<li ><a href="<?php echo base_url('-public')?>">Recent Pastes</a>
 							</li>
-							<li class="current-menu-item"><a href="<?php echo base_url('profile')?>">Profile</a>
+							<li class="current-menu-item"><a href="<?php echo base_url('-').$user_login?>">Profile</a>
                             </li>
-                            <li><a href="login/logout">Logout</a>
+                            <li><a href="logout">Logout</a>
                             </li>
-						</ul><!--  -->
+						</ul>
 					</nav><!-- End / overlay-menu -->	
 				</div><!-- End / fullscreenmenu__module -->
 			</header><!-- End / header -->

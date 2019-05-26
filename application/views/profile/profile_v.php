@@ -50,13 +50,13 @@ $join_date = $user->join_date;
 						<ul class="wil-menu-list">
 							<li ><a href="<?php echo base_url('home')?>">Home</a>
 							</li>
-							<li ><a href="<?php echo base_url('profile/v/public')?>">Recent Pastes</a>
+							<li ><a href="<?php echo base_url('-public')?>">Recent Pastes</a>
 							</li>
-							<li class="current-menu-item"><a href="<?php echo base_url('profile')?>">Profile</a>
+							<li class="current-menu-item"><a href="<?php echo base_url('-').$user_login?>">Profile</a>
                             </li>
-                            <li><a href="login/logout">Logout</a>
+                            <li><a href="logout">Logout</a>
                             </li>
-						</ul><!--  -->
+						</ul>
 					</nav>
 				</div>
 			</header>
@@ -111,7 +111,7 @@ $join_date = $user->join_date;
                                            foreach ($paste->result() as $row)
                                            {
 												if($this_username==$username|| $this_username=="admin" ){
-													?> <tr><td><a href="<?php echo base_url('ctrl/v/').$row->paste_id?>" target='_blank'> <?php echo $row->title;?> </a></td><td><?php echo $row->created_at ?></td><td><a href="<?php echo base_url('ctrl/e/').$row->paste_id?>">Edit</a> || <a href="<?php echo base_url('ctrl/d/').$row->paste_id?>" onClick="return confirm('Yakin ingin menghapus?')">Delete</a></td></tr> <?php
+													?> <tr><td><a href="<?php echo base_url('CV').$row->paste_id?>" target='_blank'> <?php echo $row->title;?> </a></td><td><?php echo $row->created_at ?></td><td><a href="<?php echo base_url('e/').$row->paste_id?>">Edit</a> || <a href="<?php echo base_url('d/').$row->paste_id?>" onClick="return confirm('Yakin ingin menghapus?')">Delete</a></td></tr> <?php
 												}
 												else{
 													?> <tr>

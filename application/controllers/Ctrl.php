@@ -27,6 +27,9 @@ class Ctrl extends CI_Controller {
         if($cek->num_rows()>0){
             $data['user'] =  $cek->row();
             $data['status'] = 0;
+            $data['status_login']=$this->session->userdata('status');
+            $data['user_login']=$this->session->userdata('nama');
+            
 
             $this->load->view('index/paste_v', $data);
         }
@@ -46,6 +49,8 @@ class Ctrl extends CI_Controller {
         if($cek->num_rows()>0){
             $data['user'] =  $cek->row();
             $data['status'] = 1;
+            $data['status_login']=$this->session->userdata('status');
+            $data['user_login']=$this->session->userdata('nama');
 
             $this->load->view('index/paste_v', $data);
         }
@@ -64,6 +69,8 @@ class Ctrl extends CI_Controller {
         
         if($cek->num_rows()>0){
             $data['user'] = $cek->row();
+            $data['status_login']=$this->session->userdata('status');
+            $data['user_login']=$this->session->userdata('nama');
             $user_id_real=$data['user']->user_id;
             if($user_id_real==$id_this_user){
                 $cek_delete = $this->m_login->delete_paste("paste", $where);
