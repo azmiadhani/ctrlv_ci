@@ -7,11 +7,13 @@ class Login extends CI_Controller {
 	public function __construct()
     {
             parent::__construct();
+
             $this->load->model('m_login');
     }
 
 	public function index()
 	{
+        $this->session->sess_destroy();
 		$this->load->view('login/login_v');
     }
 
@@ -38,8 +40,9 @@ class Login extends CI_Controller {
         }
     }
  
-	function logout(){
-		$this->session->sess_destroy();
+	public function logout(){
+        $this->session->sess_destroy();
+        
 		redirect(base_url('login'));
 	}
 }

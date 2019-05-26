@@ -130,9 +130,8 @@ $join_date = $user->join_date;
 										<?php if($this_username==$username|| $this_username=="admin"){?>
                             
                                             <!-- Tombol Edit Profile -->
-                                            <form action="<?php echo base_url('home')?>"> 
-                                                    <input type="hidden" name="id" value="<?php echo $id ?>" />
-                                                    <input class="md-btn md-btn--primary md-btn--lg" type="submit" value="New Paste" name="new"/>
+                                            <form method="post" action="<?php echo base_url('home')?>">
+												<input class="md-btn md-btn--primary md-btn--lg" type="submit" value="New Paste" name="simpan"/> 
                                             </form>
                                         <?php } ?>
                                     </div>

@@ -60,7 +60,7 @@ class Home extends CI_Controller {
             'qrcode_id' => $image_name,
             'user_id' => $user_id
             );
-        $data['user_login']=$this->session->userdata('nama');
+        
         $cek = $this->m_login->paste("paste",$data);
 
         if($cek == true){

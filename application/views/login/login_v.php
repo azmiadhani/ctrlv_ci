@@ -1,4 +1,4 @@
-Wkwk<!DOCTYPE html>
+<!DOCTYPE html>
 
 <?php
 	error_reporting(false);
