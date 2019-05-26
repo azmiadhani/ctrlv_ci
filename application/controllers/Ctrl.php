@@ -9,6 +9,7 @@ class Ctrl extends CI_Controller {
             //     redirect(base_url("login"));
             // }
             $this->load->model('m_login');
+            $this->load->helper('file');
     }
 
 	public function index()
@@ -68,6 +69,14 @@ class Ctrl extends CI_Controller {
                 $cek_delete = $this->m_login->delete_paste("paste", $where);
 
                 if($cek_delete==true){
+                    // Delete QRCode
+                    $pathtodir = getcwd(); // get ultimate path
+                    $get_file = $pathtodir."/assets/images/"."QR".$id.'.png';
+                    $data['test'] = $pathtodir;
+                    // $this->load->view('test', $data);
+                    unlink($get_file); 
+                    //End of Delete QRCode
+
                     redirect(base_url("profile/v/$user_id_real"));
                 }
                 else{

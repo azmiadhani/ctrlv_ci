@@ -123,7 +123,7 @@ error_reporting(false);
                                                 <?php
                                                 // $qrcode_id=$row['qrcode_id'];
                                                 ?>
-                                                <img src="qrcode_generated/<?php echo $qrcode_id;?>.png"> 
+                                                <img src="<?php echo base_url('assets/images/').$qrcode_id?>"> 
                                             </div><br><!-- End / form-item -->
 
                                             <!-- form-item -->
